@@ -9,5 +9,6 @@
 🧠 Чистая архитектура MVVM: разделение UI, логики и данных<br>
 
 ## Screenshots
-![Dark theme view](https://github.com/Palvenok/ToDoApp/blob/main/Screenshots/DarkTheme.png)
-![Light theme view](https://github.com/Palvenok/ToDoApp/blob/main/Screenshots/LightTheme.png)
+Amethyst Night            |  Morning Mist
+:-------------------------:|:-------------------------:
+![Dark theme](https://github.com/Palvenok/ToDoApp/blob/main/Screenshots/DarkTheme.png)  |  ![Light theme](https://github.com/Palvenok/ToDoApp/blob/main/Screenshots/LightTheme.png)
