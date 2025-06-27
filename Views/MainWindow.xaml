@@ -25,7 +25,7 @@
         <!-- Основное содержимое -->
         <Grid Margin="15" VerticalAlignment="Stretch">
             <Grid.RowDefinitions>
-                <RowDefinition Height="40"/> <!-- Отступ для заголовка -->
+                <RowDefinition Height="30"/> <!-- Отступ для заголовка -->
                 <RowDefinition Height="Auto"/> <!-- Панель ввода -->
                 <RowDefinition Height="10"/>  <!-- Отступ -->
                 <RowDefinition Height="*"/>   <!-- Список задач -->
@@ -73,7 +73,7 @@
             <Border Grid.Row="3" 
                     Background="{DynamicResource PanelBackgroundBrush}" 
                     CornerRadius="8"
-                    Padding="0">
+                    Padding="5">
                 <ListView ItemsSource="{Binding Tasks}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -90,8 +90,7 @@
                                         HorizontalAlignment="Stretch">
                                     <TextBlock Text="{Binding Title}" 
                                             TextWrapping="Wrap"
-                                            VerticalAlignment="Center"
-                                            Margin="5,0"/>
+                                            VerticalAlignment="Center"/>
                                 </CheckBox>
 
                                 <!-- Кнопка удаления -->

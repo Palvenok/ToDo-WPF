@@ -60,7 +60,7 @@ public partial class MainWindow : Window
     {
         // Calculate the position based on the screen's work area
         Left = SystemParameters.WorkArea.Right - ActualWidth - 20;
-        Top = SystemParameters.WorkArea.Bottom - ActualHeight - 20;
+        Top = SystemParameters.WorkArea.Top + 20;
 
     }
 }
