@@ -7,3 +7,7 @@
 💾 Автоматическое сохранение задач (SQLite)<br>
 🎨 Современный интерфейс с привязкой данных (Data Binding)<br>
 🧠 Чистая архитектура MVVM: разделение UI, логики и данных<br>
+
+## Screenshots
+![Dark theme view](https://github.com/Palvenok/ToDoApp/blob/main/Screenshots/DarkTheme.png)
+![Light theme view](https://github.com/Palvenok/ToDoApp/blob/main/Screenshots/LightTheme.png)
