@@ -1,0 +1,114 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToDoNote"
+        x:Class="ToDoNote.MainWindow"
+        mc:Ignorable="d"
+        Title="ToDo" 
+        Height="700" 
+        Width="450"
+        Background="{DynamicResource GlobalBackgroundBrush}"
+        Foreground="{DynamicResource GlobalForegroundBrush}"
+        FontFamily="Segoe UI"
+        WindowStartupLocation="Manual"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+        SizeToContent="Manual">
+        
+    <Grid>
+        <!-- заголовочная панель -->
+        <local:TitleBar x:Name="TitleBar"
+                        VerticalAlignment="Top"/>
+
+        <!-- Основное содержимое -->
+        <Grid Margin="15" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/> <!-- Отступ для заголовка -->
+                <RowDefinition Height="Auto"/> <!-- Панель ввода -->
+                <RowDefinition Height="10"/>  <!-- Отступ -->
+                <RowDefinition Height="*"/>   <!-- Список задач -->
+            </Grid.RowDefinitions>
+
+            <!-- Панель добавления задач -->
+            <Border Grid.Row="1" 
+                    Background="{DynamicResource PanelBackgroundBrush}" 
+                    CornerRadius="8"
+                    Padding="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <TextBox x:Name="TaskInputTextBox"
+                        Text="{Binding NewTaskTitle, UpdateSourceTrigger=PropertyChanged}"
+                        VerticalContentAlignment="Center"
+                        FontSize="16"
+                        Margin="0,0,10,0"
+                        AcceptsReturn="False">
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="Enter" Command="{Binding AddTaskCommand}"/>
+                        </TextBox.InputBindings>
+                        
+                    </TextBox>
+                    
+                    <!-- Прозрачная кнопка добавления с цветным "+" -->
+                    <Button Grid.Column="1"
+                            Command="{Binding AddTaskCommand}"
+                            Style="{StaticResource AddTaskButtonStyle}"
+                            ToolTip="Добавить задачу">
+                        <TextBlock Text="+" 
+                                FontSize="30"
+                                FontWeight="Bold"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Margin="0,-5,0,0"/>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <!-- Список задач -->
+            <Border Grid.Row="3" 
+                    Background="{DynamicResource PanelBackgroundBrush}" 
+                    CornerRadius="8"
+                    Padding="0">
+                <ListView ItemsSource="{Binding Tasks}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <!-- Grid растягивается на всю ширину -->
+                            <Grid Margin="0,2" Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Чекбокс с текстом задачи -->
+                                <CheckBox IsChecked="{Binding IsCompleted, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Stretch">
+                                    <TextBlock Text="{Binding Title}" 
+                                            TextWrapping="Wrap"
+                                            VerticalAlignment="Center"
+                                            Margin="5,0"/>
+                                </CheckBox>
+
+                                <!-- Кнопка удаления -->
+                                <Button Grid.Column="1"
+                                        Content="✕"
+                                        Command="{Binding Path=DataContext.DeleteTaskCommand, 
+                                                RelativeSource={RelativeSource AncestorType=ListView}}"
+                                        CommandParameter="{Binding}"
+                                        Style="{DynamicResource DeleteTaskButtonStyle}"
+                                        ToolTip="Удалить задачу">
+                                </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Border>
+        </Grid>
+        
+    </Grid>
+</Window>

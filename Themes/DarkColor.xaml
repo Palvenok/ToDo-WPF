@@ -1,0 +1,16 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="GlobalBackgroundBrush" Color="#1E1E2A"/>
+    <SolidColorBrush x:Key="GlobalForegroundBrush" Color="#E0E0E0"/>
+
+    <SolidColorBrush x:Key="PanelBackgroundBrush" Color="#2A273A"/>
+    <SolidColorBrush x:Key="PanelBorderBrush" Color="#6A5F8C"/>
+
+    <SolidColorBrush x:Key="TextBoxBackgroundBrush" Color="#2F2C3F"/>
+
+    <SolidColorBrush x:Key="CheckBoxBackgroundBrush" Color="#2F2C3F"/>
+    <SolidColorBrush x:Key="CheckBoxBorderBrush" Color="#7C6FA3"/>
+    <SolidColorBrush x:Key="CheckBoxMouseOverBorderBrush" Color="#9B8FC2"/>
+
+</ResourceDictionary>

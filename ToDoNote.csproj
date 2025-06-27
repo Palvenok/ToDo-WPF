@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <SelfContained>true</SelfContained>
+    <AssemblyName>ToDo</AssemblyName>
+    <UseWPF>true</UseWPF>
+    <!-- Исключение неиспользуемых ресурсов -->
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Для WPF можно исключить некоторые ресурсы -->
+    <RuntimeHostConfigurationOption Include="System.Windows.Xaml.PreferredCulture" Value="en" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+</PropertyGroup>
+
+</Project>

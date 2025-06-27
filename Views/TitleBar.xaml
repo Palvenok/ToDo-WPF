@@ -1,0 +1,31 @@
+<UserControl x:Class="ToDoNote.TitleBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="30">
+    <Border Height="30"
+            Background="{DynamicResource PanelBackgroundBrush}"
+            MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+        <Grid>
+            <TextBlock Text="ToDo" 
+                       VerticalAlignment="Center"
+                       Margin="10,0,0,0"
+                       FontSize="14"/>
+
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center">
+                <Button x:Name="ThemeButton"
+                        Style="{StaticResource ThemeToggleButtonStyle}" 
+                        Click="ThemeToggleButton_Click"/>
+                <Button x:Name="MinimizeButton" 
+                        Content="─" 
+                        Style="{DynamicResource MinimizeButtonStyle}"
+                        Click="MinimizeButton_Click"/>
+                <Button x:Name="CloseButton" 
+                        Content="✕" 
+                        Style="{DynamicResource CloseButtonStyle}"
+                        Click="CloseButton_Click"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>
