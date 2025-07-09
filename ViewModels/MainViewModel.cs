@@ -25,6 +25,7 @@ public class MainViewModel : INotifyPropertyChanged
 
     public ICommand AddTaskCommand => new RelayCommand(AddTask);
     public ICommand DeleteTaskCommand => new RelayCommand<TaskItem>(DeleteTask);
+    public ICommand UpdateTaskCommand => new RelayCommand<TaskItem>(UpdateTask);
 
     public MainViewModel()
     {
@@ -50,7 +51,7 @@ public class MainViewModel : INotifyPropertyChanged
     {
         if (!string.IsNullOrWhiteSpace(NewTaskTitle))
         {
-            var newTask = new TaskItem { Title = NewTaskTitle, IsCompleted = false };
+            var newTask = new TaskItem { Content = NewTaskTitle, IsCompleted = false };
             
             // Добавление в базу данных
             _dbContext.Tasks.Add(newTask);
@@ -73,6 +74,12 @@ public class MainViewModel : INotifyPropertyChanged
             // Удаление из коллекции
             Tasks.Remove(task);
         }
+    }
+    // Метод для обновления статуса задачи
+    private async void UpdateTask(TaskItem task)
+    {
+        _dbContext.Entry(task).State = EntityState.Modified;
+        await _dbContext.SaveChangesAsync();
     }
 
     // Метод для обновления статуса задачи

@@ -83,18 +83,19 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
+                                
+                                <local:EditableCheckBox x:Name="MyCheckBox"
+                                                        IsChecked="{Binding IsCompleted, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                        Content="{Binding Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                        HorizontalAlignment="Stretch"
+                                                        VerticalAlignment="Center"
+                                                        FontSize="16"
+                                                        FocusVisualStyle="{x:Null}">
+                                </local:EditableCheckBox>
 
-                                <!-- Чекбокс с текстом задачи -->
-                                <CheckBox IsChecked="{Binding IsCompleted, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Stretch">
-                                    <TextBlock Text="{Binding Title}" 
-                                            TextWrapping="Wrap"
-                                            VerticalAlignment="Center"/>
-                                </CheckBox>
 
                                 <!-- Кнопка удаления -->
-                                <Button Grid.Column="1"
+                                <Button Grid.Column="2"
                                         Content="✕"
                                         Command="{Binding Path=DataContext.DeleteTaskCommand, 
                                                 RelativeSource={RelativeSource AncestorType=ListView}}"

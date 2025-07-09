@@ -11,14 +11,14 @@ public class TaskItem : INotifyPropertyChanged
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
-    private string _title = "";
-    public string Title
+    private string _content = "";
+    public string Content
     {
-        get => _title;
+        get => _content;
         set
         {
-            _title = value;
-            OnPropertyChanged(nameof(Title));
+            _content = value;
+            OnPropertyChanged(nameof(Content));
         }
     }
 

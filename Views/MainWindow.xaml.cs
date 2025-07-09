@@ -14,7 +14,7 @@ public partial class MainWindow : Window
         DataContext = new MainViewModel();
 
         this.Loaded += MainWindow_Loaded;
-
+        
         if (DataContext is MainViewModel vm)
         {
             vm.Tasks.CollectionChanged += (s, e) =>
@@ -25,10 +25,7 @@ public partial class MainWindow : Window
                     {
                         task.PropertyChanged += async (sender, args) =>
                         {
-                            if (args.PropertyName == nameof(TaskItem.IsCompleted))
-                            {
-                                await vm.UpdateTaskAsync((TaskItem)sender);
-                            }
+                            await vm.UpdateTaskAsync((TaskItem)sender);
                         };
                     }
                 }
@@ -39,10 +36,7 @@ public partial class MainWindow : Window
             {
                 task.PropertyChanged += async (sender, args) =>
                 {
-                    if (args.PropertyName == nameof(TaskItem.IsCompleted))
-                    {
-                        await vm.UpdateTaskAsync((TaskItem)sender);
-                    }
+                    await vm.UpdateTaskAsync((TaskItem)sender);
                 };
             }
         }
